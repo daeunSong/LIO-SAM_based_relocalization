@@ -1,7 +1,7 @@
 A simple version of system that can relocalize in a built map is developed in this repository. The sysytem is bsed on LIO_SAM.
 The repository is developed based on the origional version of LIO-SAM in which the GPS is not fused.
 ## Run the package
-1. Make sure the map should be saved in the right folder:
+1. Make sure the map should be saved in `/home/(your user name)/Downloads/LOAM/cloudGlobal.pcd`:
 ```
 Firstly, you need to run LIO-SAM, and then save the map in the default folder
 ```
@@ -73,20 +73,16 @@ We design a system that maintains two graphs and runs up to 10x faster than real
 
 ## Dependency
 
-- [ROS](http://wiki.ros.org/ROS/Installation) (tested with Kinetic and Melodic)
+- [ROS](http://wiki.ros.org/ROS/Installation) (tested with Kinetic and Melodic. Refer to [#206](https://github.com/TixiaoShan/LIO-SAM/issues/206) for Noetic)
   ```
-  sudo apt-get install -y ros-kinetic-navigation
-  sudo apt-get install -y ros-kinetic-robot-localization
-  sudo apt-get install -y ros-kinetic-robot-state-publisher
+  sudo apt-get install -y ros-noetic-navigation
+  sudo apt-get install -y ros-noetic-robot-localization
+  sudo apt-get install -y ros-noetic-robot-state-publisher
   ```
-- [gtsam](https://github.com/borglab/gtsam/releases) (Georgia Tech Smoothing and Mapping library)
+- [gtsam](https://gtsam.org/get_started/) (Georgia Tech Smoothing and Mapping library)
   ```
-  wget -O ~/Downloads/gtsam.zip https://github.com/borglab/gtsam/archive/4.0.2.zip
-  cd ~/Downloads/ && unzip gtsam.zip -d ~/Downloads/
-  cd ~/Downloads/gtsam-4.0.2/
-  mkdir build && cd build
-  cmake -DGTSAM_BUILD_WITH_MARCH_NATIVE=OFF ..
-  sudo make install -j8
+  sudo add-apt-repository ppa:borglab/gtsam-release-4.0
+  sudo apt install libgtsam-dev libgtsam-unstable-dev
   ```
 
 ## Install
